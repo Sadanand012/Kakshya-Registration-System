@@ -12,9 +12,9 @@ import com.masai.studentbean.StudentCourse;
 public interface AdminDao {
 
 	public String addNewCourse(Course course);
-	public String deleteCourse(String cname);
+	public String deleteCourse(String cname) throws CourseException;
 	public String updateFeesByCourseId(int cid, int fee) throws CourseException;
-	public Course searchCourse(int cid) throws CourseException;
+	public Course searchCourseInformation(int cid) throws CourseException;
 	public String createABatch(Batch batch);
 	public String addStudentInABatch(int cid,int roll);
 	public String updateSeat(int seat, int bid) throws BatchException;
