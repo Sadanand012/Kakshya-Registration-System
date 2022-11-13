@@ -2,30 +2,38 @@ package com.masai.usecases;
 
 import java.util.List;
 
+import com.masai.dao.AdminDao;
+import com.masai.dao.AdminDaoImpl;
 import com.masai.dao.StudentDao;
 import com.masai.dao.StudentDaoImpl;
 import com.masai.exceptions.CourseException;
+import com.masai.exceptions.StudentException;
 import com.masai.studentbean.Course;
+import com.masai.studentbean.StudentCourse;
 
 public class GetAllCourseAndSeat {
 
-	public static void getDetails() {
-		StudentDao dao=new StudentDaoImpl();
+	public static void getStudent() {
+		AdminDao dao=new AdminDaoImpl();
 		try {
-			List<Course> courses = dao.getAllCourse();
-			courses.forEach(c->{
-				
-				System.out.println("--------------------------");
-				System.out.println("Course details - ");
-				System.out.println("--------------------------");
-				System.out.println("Course id - "+c.getCid());
-				System.out.println("Course name - "+c.getCname());
-				System.out.println("Course fee - "+c.getFee());
-				System.out.println("Course bid - "+c.getBid());
-				
+			List<StudentCourse> students= dao.getAllStudentDetailWithBatch();
+			
+			students.forEach(s->{
+				int i=1;
+				System.out.println();
+				System.out.println("Student No - "+i++);
+				System.out.println("------------------------------------");
+				System.out.println("Student name - "+s.getSname());
+				System.out.println("Student roll - "+s.getRoll());
+				System.out.println("Student marks - "+s.getMarks());
+				System.out.println("Student email - "+s.getEmail());
+				System.out.println("Student batch id - "+s.getBid());
+				System.out.println("Student batch name - "+s.getBname());
 			});
-		} catch (CourseException e) {
+		} catch (StudentException e) {
+			
 			e.printStackTrace();
 		}
+		
 	}
 }

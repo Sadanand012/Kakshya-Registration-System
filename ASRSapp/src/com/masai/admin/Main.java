@@ -70,7 +70,7 @@ public class Main {
 	public static void admin() {
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("1. Add a new Courses\r\n"
+		System.out.println("\r\n 1. Add a new Courses\r\n"
 				+ "2. Update Fees of course.\r\n"
 				+ "3. Delete a course from any Training session.\r\n"
 				+ "4. Search information about a course.\r\n"
@@ -114,7 +114,7 @@ public class Main {
 			UpdateSeats.updateSeat();
 			break;
 		case 8:
-			GetAllCourseAndSeat.getDetails();
+			GetAllCourseAndSeat.getStudent();;
 			break;
 		case 9:
 			selectUser();
@@ -126,7 +126,7 @@ public class Main {
 	
 	public static void student() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("1. Register course with a username and password (email should be the username)\r\n"
+		System.out.println("\r\n 1. Register course with a username and password (email should be the username)\r\n"
 				+ "2. Update this details.\r\n"
 				+ "3. Available course list and seat availability.\r\n"
 				+ "4. Go back \r\n");
@@ -150,7 +150,7 @@ public class Main {
 			UpdateStudentDetails.updateStudent();
 			break;
 		case 3:
-			GetStudentDetailWithBatch.getStudent();
+			GetStudentDetailWithBatch.getDetails();;
 			break;
 		case 4:
 			selectUser();

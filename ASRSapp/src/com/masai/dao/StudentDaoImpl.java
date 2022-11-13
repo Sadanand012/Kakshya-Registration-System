@@ -9,33 +9,10 @@ import java.util.List;
 
 import com.masai.exceptions.CourseException;
 import com.masai.studentbean.Course;
-import com.masai.studentbean.Student;
 import com.masai.utility.DBUtil;
 
 public class StudentDaoImpl implements StudentDao{
-	/*
-	@Override
-	public String registerStudent(Student student) {
-		String str = "Not Registered";
-		
-		try (Connection conn = DBUtil.provideConnection()){
-			PreparedStatement ps = conn.prepareStatement("insert into student(sname,smarks,semail,spassword) values(?,?,?,?)");
-			ps.setString(1, student.getSname());
-			ps.setInt(2, student.getMarks());
-			ps.setString(3, student.getEmail());
-			ps.setString(4, student.getPassword());
-			
-			int a = ps.executeUpdate();
-			if(a>0) {
-				str = "Student registered successfully";
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		return str;
-	}
-	*/
+	
 	@Override
 	  public String registerStudent(String username, String password){
 	  		String str = "Not Resistered";
@@ -58,8 +35,8 @@ public class StudentDaoImpl implements StudentDao{
 	 }
 	 
 	@Override
-	  public String updateStudentDetails(String name, int marks, String email) {
-	  String str = "Not updated";
+	 public String updateStudentDetails(String name, int marks, String email) {
+	    String str = "Not updated";
 		try (Connection conn = DBUtil.provideConnection()) {
 			PreparedStatement ps = conn.prepareStatement("update student set sname=?,smarks=? where semail=?");
 			ps.setString(1, name);
@@ -75,30 +52,8 @@ public class StudentDaoImpl implements StudentDao{
 			e.printStackTrace();
 		}
 		return str;
-		}
-	 
-	 /*@Override
-	public String updateStudentDetails(int roll, String name, int marks, String email, String password) {
-		// TODO Auto-generated method stub
-		String str = "Not updated";
-		try (Connection conn = DBUtil.provideConnection()) {
-			PreparedStatement ps = conn.prepareStatement("update student set sname=?,smarks=?,semail=?,spassword=? where roll=?");
-			ps.setString(1, name);
-			ps.setInt(2, marks);
-			ps.setString(3, email);
-			ps.setString(4, password);
-			ps.setInt(5, roll);
-			
-			int a = ps.executeUpdate();
-			if(a>0) {
-				str = "Update student details successfully";
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return str;
 	}
-*/
+	 
 	@Override
 	public List<Course> getAllCourse() throws CourseException{
 		List<Course> course = new ArrayList<>();

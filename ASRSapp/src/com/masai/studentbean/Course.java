@@ -6,6 +6,7 @@ public class Course {
 	private String cname;
 	private int fee;
 	private int bid;
+	
 	public Course() {
 		// TODO Auto-generated constructor stub
 	}
