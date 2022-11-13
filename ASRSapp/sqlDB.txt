@@ -1,0 +1,43 @@
+Sadanand Kakshya Registration System
+
+ create database kakshya0asrs;
+
+create table batch
+(
+bid int primary key,
+name varchar(25) not null,
+broll int not null
+);
+
+create table student
+(
+sroll int primary key auto_increment,
+sname varchar(20) not null,
+smarks int not null,
+semail varchar(30) not null,
+spassword varchar(20) not null
+);
+
+create table course(
+cid int primary key auto_increment,
+cname varchar(20) not null,
+fee int not null,
+bid int
+);
+ 
+create table student_batch
+(
+roll int,
+cid int,
+foreign key (roll) references student(sroll),
+foreign key (cid) references course(cid)
+);
+mysql> show tables;
++------------------------+
+| Tables_in_kakshya0asrs |
++------------------------+
+| batch                  |
+| course                 |
+| student                |
+| student_batch          |
++------------------------+
